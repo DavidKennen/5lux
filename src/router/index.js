@@ -8,6 +8,7 @@ import shop from "./shop";
 import country from "./country";
 import gfit from "./gfit";
 import list from "./list";
+import shopnav from "./shopnav"
 
 export default new Router({
   routes: [
@@ -19,6 +20,7 @@ export default new Router({
    shop,
    country,
    list,
-   gfit
+   gfit,
+   shopnav
   ]
 })
