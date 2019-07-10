@@ -8,7 +8,7 @@
             <img :src="item.banner_m" alt />
             <div class="text">
               <p>{{item.name}}</p>
-              <p>{{item.name_en}}a </p>
+              <p>{{item.name_en}}</p>
             </div>
           </a>
         </li>
