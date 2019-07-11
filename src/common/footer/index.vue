@@ -46,28 +46,31 @@ export default {
 
 <style>
     .navs{
-        height: 44px;
-        background: #181818;
-        width: 100%;
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 20;
-        text-align: center;
-        box-sizing: border-box;
+       height: 44px;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    position: relative;
+    background-color: #181818;
+    text-align: center;
+    position: fixed;
+    z-index: 15;
     }
     .nav>.t-NavList{
         height: 44px;
-        color: #ccc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+    display: -ms-flexbox;
+    display: flex;
+    color: #ffffff;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
     }
     .t-NavList>span{
         font-size: 16px;
-        color: #fff;
-        margin: 16px;
-        height: 100%;
+    margin: 0 12px;
+    color: #ffffff
     }
 </style>

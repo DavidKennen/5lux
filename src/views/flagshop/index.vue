@@ -1,14 +1,15 @@
 <template>
+
     <div>
         <div class="brandflagship" v-for="(item,index) in logo" :key="index">
         <div class="detail"><a>A-Z</a></div>
         <div>
             <!---->
         </div> 
-        
+        <Loading v-if="LoadingLogo"/>
             <img :src="item.img_url"
             style="position: absolute; z-index: 1; filter: blur(10px); height: 100%; width: 100%;">
-        <div style="width: 100%;">
+        <div style="width: 100%;"  v-if="!LoadingLogo">
             <div class="swiper-container swiper-container-horizontal swiper-container-3d swiper-container-coverflow">
                 <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
                     <div class="swiper-slide swiper-slide-active"
@@ -38,12 +39,18 @@ export default {
     },
     async created(){
         let logos = await logoIn();
+        if(logos){
+            this.LoadingLogo = false
+        }else{
+            this.LoadingLogo = true
+        }
         console.log(logos.data.mbpage_list)
         this.logo = logos.data.mbpage_list;
     },
     data(){
         return{
-            logo:[]
+            logo:[],
+            LoadingLogo:true
         }
     }
 }

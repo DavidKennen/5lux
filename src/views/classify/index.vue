@@ -1,7 +1,7 @@
 <template>
    
-    
      <div>
+        
         <TabBar/>
         <Loading v-if="loadingList"/>
         <div class="brandtype">
@@ -41,7 +41,7 @@
         </div>
     </div>
   </div>
-      
+
     
 </template>
 
@@ -68,19 +68,18 @@ export default {
             this.loadingList = true
         }
         this.list = getData.data;
-        // console.log(getData.data)
+        
 
         let yifuList = await suitList();
         this.show = yifuList.data;
-        // console.log(this.show)
-        // console.log(this.show[0].child_list)
+        
     },
     data(){
         return{
             list:[],
             show:[],
             loadingList:true,
-         
+            logTap:false
         }
     },
     //滚动条设置
@@ -95,7 +94,7 @@ export default {
             let yifuList = await suitList(idx);
           
             
-             console.log(this.logTap)
+            // console.log(this.logTap)
             this.show = yifuList.data;
         }
     }
