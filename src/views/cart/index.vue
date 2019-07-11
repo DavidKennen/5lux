@@ -17,6 +17,7 @@
     <div class="text_like">金袋子猜您喜欢</div>
     <!-- 商品区 -->
     <div class="content" >
+      <Loading v-if="loadingFlag" />
       <ul>
         <li v-for="(item,index) in tarbari" :key="index">
           <a href="#">
@@ -51,14 +52,20 @@ export default {
   },
   created() {
     axios("https://apim.restful.5lux.com.cn/cart/getrecommend").then((res)=>{
-       console.log(res);
+         if (res) {
+          this.loadingFlag = false;
+        } else {
+          this.loadingFlag = true;
+        }
+       //console.log(res);
         this.tarbari = res.data.data
-        console.log(this.tarbari);
+        //console.log(this.tarbari);
     })
   },
   data() {
     return {
-      tarbari: []
+      tarbari: [],
+      loadingFlag:true
     };
   }
 }
